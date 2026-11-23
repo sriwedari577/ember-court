@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ember Court — a card duel</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="table">
+  <header>
+    <h1>EMBER <span>COURT</span></h1>
+    <div id="turn-label">Turn 1</div>
+    <button id="mute-button" type="button">Sound: on</button>
+  </header>
+
+  <div class="hero-row">
+    <div id="rival-hero"></div>
+    <div id="rival-hand" aria-label="The Warden's hand"></div>
+  </div>
+  <div id="rival-board" class="board" aria-label="The Warden's side of the table"></div>
+
+  <div id="player-board" class="board" aria-label="Your side of the table"></div>
+  <div class="hero-row">
+    <div id="player-hero"></div>
+    <div id="player-hand" aria-label="Your hand"></div>
+  </div>
+
+  <div class="controls">
+    <button id="end-turn" type="button">End Turn</button>
+    <div id="hint"></div>
+  </div>
+  <div id="log" aria-live="polite"></div>
+  <div class="keys">Mouse: click a card to play it · click your creature, then an enemy, to attack · Keys: 1–9 play a card · E end turn · ← → choose a card · Enter play it · Esc cancel</div>
+</div>
+
+<div id="title-overlay" class="overlay">
+  <div class="panel">
+    <h2>EMBER COURT</h2>
+    <p>A duel of four courts. Reduce the Warden's life from 20 to 0 before yours runs out. Each turn you gain mana, draw a card, play creatures and spells, and send your creatures across the table.</p>
+    <p class="suit-key">▲ Ember burns &nbsp;● Tide heals and drains &nbsp;✦ Grove guards &nbsp;◆ Stone endures</p>
+    <button id="play-button" class="big-button" type="button">Play</button>
+    <button id="how-button" class="ghost-button" type="button">How to play</button>
+    <div id="how-panel">
+      <p><b>Creatures</b> cost mana (blue number). A creature cannot attack the turn it is played, unless it has Charge. <b>Guard</b> creatures must be attacked before anything else. <b>Drain</b> creatures heal you for the damage they deal.</p>
+      <p><b>Spells</b> take effect at once: damage, healing, drawing cards, or fortifying a creature. When your deck runs out, drawing hurts instead — fatigue.</p>
+      <p><b>To attack:</b> click one of your ready creatures, then click an enemy creature or the Warden. Both creatures strike each other.</p>
+    </div>
+  </div>
+</div>
+
+<div id="win-overlay" class="overlay">
+  <div class="panel">
+    <h2>VICTORY</h2>
+    <p>The Warden's court falls silent. The ember is yours.</p>
+    <p id="win-stats"></p>
+    <button id="restart-win" class="big-button" type="button">Play again</button>
+  </div>
+</div>
+
+<div id="lose-overlay" class="overlay">
+  <div class="panel">
+    <h2 class="lose">DEFEAT</h2>
+    <p>The Warden keeps the court — this time.</p>
+    <p id="lose-stats"></p>
+    <button id="restart-lose" class="big-button" type="button">Try again</button>
+  </div>
+</div>
+
+<script type="module" src="main.js"></script>
+</body>
+</html>
